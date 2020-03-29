@@ -1,5 +1,6 @@
 def projects = [
-        ':product': [name: "product", path: 'product'],
+        ':product'                    : [name: "jestly-common", path: 'product'],
+        ':jestly-application-db-model': [name: "jestly-application-db-model", path: 'jestly-application-db-model']
 ]
 
 projects.each() { key, config ->
