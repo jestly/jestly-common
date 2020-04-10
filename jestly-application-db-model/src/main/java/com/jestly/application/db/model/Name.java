@@ -1,10 +1,13 @@
 package com.jestly.application.db.model;
 
-import javax.persistence.Embeddable;
+import javax.validation.constraints.NotBlank;
 
-@Embeddable
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Name
 {
+    @NotBlank
     private String firstName;
     private String middleName;
     private String lastName;

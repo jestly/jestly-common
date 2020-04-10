@@ -1,26 +1,41 @@
 package com.jestly.application.db.model;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 
-@Entity
-@Table(name = TableConstants.USER_INFORMATION_TABLE)
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User
 {
-    @Id
+    private long timestamp = System.currentTimeMillis();
+    @NotBlank
     private String userId;
+    @Valid
     private Name name;
+    @NotBlank
     private String emailAddress;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<PostInformation> postInformations = new ArrayList<>();
+    private Password password;
+    private Attachment image;
+    private Attachment coverImage;
+    private boolean isOnline;
+    private List<Post> posts;
+    private List<Follow> followers;
+    private List<Follow> following;
+    private List<Message> messages;
+    private List<Notification> notifications;
+
+    public long getTimestamp()
+    {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp)
+    {
+        this.timestamp = timestamp;
+    }
 
     public String getUserId()
     {
@@ -52,13 +67,93 @@ public class User
         this.emailAddress = emailAddress;
     }
 
-    public List<PostInformation> getPostInformations()
+    public Password getPassword()
     {
-        return postInformations;
+        return password;
     }
 
-    public void setPostInformations(List<PostInformation> postInformations)
+    public void setPassword(Password password)
     {
-        this.postInformations = postInformations;
+        this.password = password;
+    }
+
+    public Attachment getImage()
+    {
+        return image;
+    }
+
+    public void setImage(Attachment image)
+    {
+        this.image = image;
+    }
+
+    public Attachment getCoverImage()
+    {
+        return coverImage;
+    }
+
+    public void setCoverImage(Attachment coverImage)
+    {
+        this.coverImage = coverImage;
+    }
+
+    public boolean isOnline()
+    {
+        return isOnline;
+    }
+
+    public void setOnline(boolean online)
+    {
+        isOnline = online;
+    }
+
+    public List<Post> getPosts()
+    {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts)
+    {
+        this.posts = posts;
+    }
+
+    public List<Follow> getFollowers()
+    {
+        return followers;
+    }
+
+    public void setFollowers(List<Follow> followers)
+    {
+        this.followers = followers;
+    }
+
+    public List<Follow> getFollowing()
+    {
+        return following;
+    }
+
+    public void setFollowing(List<Follow> following)
+    {
+        this.following = following;
+    }
+
+    public List<Message> getMessages()
+    {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages)
+    {
+        this.messages = messages;
+    }
+
+    public List<Notification> getNotifications()
+    {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications)
+    {
+        this.notifications = notifications;
     }
 }

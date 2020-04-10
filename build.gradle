@@ -21,8 +21,8 @@ subprojects {
                 name = "GitHubPackages"
                 url = uri("https://maven.pkg.github.com/jestly/artifact-repository")
                 credentials {
-                    username = project.findProperty("gpr.user") as String ?: System.getenv("GITUSERNAME")
-                    password = project.findProperty("gpr.key") as String ?: System.getenv("TOKEN")
+                    username = "sagarverma1919"
+                    password = "b6ba56f1922617c3ee2577075b52af078ef18ddc"
                 }
             }
         }
@@ -34,7 +34,7 @@ subprojects {
             url = uri("https://maven.pkg.github.com/jestly/artifact-repository/")
             credentials {
                 username = "sagarverma1919"
-                password = "c2036a124036b4897a3bc62f524b2da45a4ff39d"
+                password = "b6ba56f1922617c3ee2577075b52af078ef18ddc"
             }
         }
 
